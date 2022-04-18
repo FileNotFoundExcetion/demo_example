@@ -2,6 +2,7 @@ package com.example.demo;
 
 import com.example.demo.entity.User;
 import com.example.demo.mapper.UserMapper;
+import com.example.demo.serviceImpl.UserServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -14,6 +15,9 @@ class DemoApplicationTests {
 	@Resource
 	UserMapper userMapper;
 
+	@Resource
+	UserServiceImpl userServiceImpl;
+
 	@Test
 	void test() {
 		User user=new User();
@@ -23,6 +27,11 @@ class DemoApplicationTests {
 		user.setCreateTime(LocalDateTime.now());
 		userMapper.insert(user);
 		System.out.println(user);
+	}
+
+	@Test
+	public void test01(){
+		userServiceImpl.test();
 	}
 
 }
