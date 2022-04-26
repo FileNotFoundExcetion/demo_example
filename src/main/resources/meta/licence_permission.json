@@ -1,0 +1,80 @@
+{
+  "/cpm/api/projects/channel/(\\d+)": {
+     "featureId": "cpm.switch.basicBusinessDataManag",
+     "method": ["GET","DELETE"],
+     "featureType": "type_switchFeature"
+  },
+
+  "/cpm/api/projects/channel": {
+      "featureId": "cpm.switch.basicBusinessDataManag",
+      "method": ["POST","GET"],
+      "featureType": "type_switchFeature"
+  },
+
+  "/cpm/api/projects/document": {
+    "featureId": "cpm.switch.basicBusinessDataManag",
+    "method": ["POST","GET"],
+    "featureType": "type_switchFeature"
+  },
+
+  "/cpm/api/projects/document/(\\d+)": {
+    "featureId": "cpm.switch.basicBusinessDataManag",
+    "method": ["PUT","DELETE","GET"],
+    "featureType": "type_switchFeature"
+  },
+
+  "/cpm/api/projects/purpose/list": {
+    "featureId": "cpm.switch.basicBusinessDataManag",
+    "method": ["GET"],
+    "featureType": "type_switchFeature"
+  },
+
+  "/cpm/api/projects/purpose/(\\d+)": {
+    "featureId": "cpm.switch.basicBusinessDataManag",
+    "method": ["GET","PUT","DELETE"],
+    "featureType": "type_switchFeature"
+  },
+
+  "/cpm/api/projects/purpose": {
+    "featureId": "cpm.switch.basicBusinessDataManag",
+    "method": ["GET","POST"],
+    "featureType": "type_switchFeature"
+  },
+
+  "/cpm/api/projects/scene": {
+    "featureId": "cpm.switch.basicBusinessDataManag",
+    "method": ["GET","POST"],
+    "featureType": "type_switchFeature"
+  },
+
+  "/cpm/api/projects/scene/code/(\\S+)": {
+    "featureId": "cpm.switch.basicBusinessDataManag",
+    "method": ["GET"],
+    "featureType": "type_switchFeature"
+  },
+
+   "/cpm/api/projects/scene/(\\d+)": {
+     "featureId": "cpm.switch.basicBusinessDataManag",
+     "method": ["PUT","DELETE"],
+     "featureType": "type_switchFeature"
+   },
+
+  "/cpm/api/projects/webCookie": {
+    "featureId": "cpm.quota.cookieConsentCollectConfig",
+    "method": ["POST"],
+    "featureType": "type_numberFeature"
+  },
+
+  "/cpm/api/projects/miniProgram": {
+    "featureId": "cpm.quota.miniProgramConsentCollectSDK",
+    "method": ["POST"],
+    "featureType": "type_numberFeature"
+  },
+
+  "/cpm/api/users": {
+    "featureId": "cpm.quota.userManage",
+    "method": ["POST"],
+    "featureType": "type_numberFeature"
+  }
+
+}
