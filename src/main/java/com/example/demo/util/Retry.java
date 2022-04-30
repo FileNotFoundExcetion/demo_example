@@ -1,7 +1,6 @@
 package com.example.demo.util;
 
 import com.github.rholder.retry.*;
-import com.google.common.base.Predicates;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -71,9 +70,9 @@ public class Retry {
         Retryer<Boolean> retryer = RetryerBuilder.<Boolean>newBuilder()
                 //retryIf 重试条件
                 .retryIfException()
-                .retryIfExceptionOfType(Exception.class)
-                .retryIfException(Predicates.equalTo(new Exception()))
-                .retryIfResult(Predicates.equalTo(false))
+              //  .retryIfExceptionOfType(Exception.class)
+            //    .retryIfException(Predicates.equalTo(new Exception()))
+             //   .retryIfResult(Predicates.equalTo(false))
                 //等待策略：每次请求间隔1s
                 .withWaitStrategy(WaitStrategies.fixedWait(1, TimeUnit.SECONDS))
                 //停止策略 : 尝试请求6次

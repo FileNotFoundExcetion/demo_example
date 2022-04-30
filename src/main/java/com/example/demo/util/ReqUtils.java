@@ -1,10 +1,10 @@
 package com.example.demo.util;
 
-import cn.hutool.core.util.NumberUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.concurrent.atomic.AtomicReference;
 
 @Slf4j
 public class ReqUtils {
@@ -26,6 +26,9 @@ public class ReqUtils {
     }
 
     public static void main(String[] args) {
-        System.out.println(NumberUtil.compare(5L, 6L)>0);
+        AtomicReference<Boolean> webhookMessageDeliveryAtomicReference = new AtomicReference<>();
+        webhookMessageDeliveryAtomicReference.set(true);
+        // webhookMessageDeliveryAtomicReference.compareAndSet(true,true);
+        System.out.println(webhookMessageDeliveryAtomicReference.get());
     }
 }
