@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat;
 @Slf4j
 public class JsonUtil {
 
-    private static ObjectMapper mapper = new ObjectMapper();
+    private static final ObjectMapper mapper = new ObjectMapper();
 
 
     static {
