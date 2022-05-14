@@ -3,6 +3,9 @@ package com.example.demo.util;
 import org.apache.tomcat.util.codec.binary.Base64;
 
 import javax.crypto.Cipher;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.security.*;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
@@ -28,10 +31,10 @@ public class RSACoder {
      * */
     private static final int KEY_SIZE=512;
     //公钥
-    private static final String PUBLIC_KEY="RSAPublicKey";
+    private static final String PUBLIC_KEY="PortalPublicKey";
 
     //私钥
-    private static final String PRIVATE_KEY="RSAPrivateKey";
+    private static final String PRIVATE_KEY="CPMPrivateKey";
 
     /**
      * 初始化密钥对
@@ -161,11 +164,14 @@ public class RSACoder {
         Map<String,Object> keyMap=RSACoder.initKey();
         //公钥
         byte[] publicKey=RSACoder.getPublicKey(keyMap);
-
+        writeFile("publicKey",publicKey);
         //私钥
         byte[] privateKey=RSACoder.getPrivateKey(keyMap);
-        System.out.println("公钥：/n"+Base64.encodeBase64String(publicKey));
-        System.out.println("私钥：/n"+ Base64.encodeBase64String(privateKey));
+        writeFile("privateKey",publicKey);
+        System.out.println("=============公钥:");
+        System.out.println(Base64.encodeBase64String(publicKey));
+        System.out.println("=============私钥:");
+        System.out.println( Base64.encodeBase64String(privateKey));
 
         System.out.println("================密钥对构造完毕,甲方将公钥公布给乙方，开始进行加密数据的传输=============");
         String str="RSA密码交换算法";
@@ -196,5 +202,13 @@ public class RSACoder {
         //甲方使用私钥对数据进行解密
         byte[] decode2=RSACoder.decryptByPrivateKey(code2, privateKey);
         System.out.println("甲方解密后的数据："+new String(decode2));
+    }
+
+    private static void writeFile(String destPath, byte[] bytes) throws IOException {
+        File dest = new File(destPath);
+        if (!dest.exists()) {
+            dest.createNewFile();
+        }
+        Files.write(dest.toPath(), bytes);
     }
 }

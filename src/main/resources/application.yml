@@ -6,6 +6,10 @@ spring:
   servlet:
     multipart:
       max-file-size: 100MB
+  redis:
+    database: 0
+    port: 6379
+    host: localhost
 
 server:
   port: 9090
@@ -17,4 +21,3 @@ mybatis-plus:
 logging:
   level:
     com.example.demo.*: debug
-

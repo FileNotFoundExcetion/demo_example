@@ -1,9 +1,12 @@
 package com.example.demo;
 
-import com.example.demo.service.TestService;
+import com.example.demo.service.FeignClients;
+import com.example.demo.serviceImpl.TestService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.ResponseEntity;
 import org.springframework.retry.support.RetryTemplate;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
@@ -54,5 +57,12 @@ public class RetryTest {
                     }));
         }
         Thread.currentThread().join();
+    }
+    @Autowired
+    private FeignClients feignClients;
+    @Test
+    public void feign(){
+        ResponseEntity json = feignClients.fetchIP("json", "218.192.3.42");
+        System.out.println(json);
     }
 }

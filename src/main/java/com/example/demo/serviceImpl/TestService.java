@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.serviceImpl;
 
 import org.springframework.stereotype.Service;
 
@@ -7,7 +7,6 @@ public class TestService {
 
     public String helloWorld(){
         System.out.println("=========="+"helloWorld");
-        System.out.println("=========="+1/0);
         return "hello world";
     }
 }

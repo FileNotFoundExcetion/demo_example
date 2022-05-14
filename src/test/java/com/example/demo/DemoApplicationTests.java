@@ -4,7 +4,7 @@ import com.example.demo.config.SpringContextUtil;
 import com.example.demo.entity.User;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.service.Count;
-import com.example.demo.service.Test01;
+import com.example.demo.serviceImpl.Test01;
 import com.example.demo.serviceImpl.UserServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;

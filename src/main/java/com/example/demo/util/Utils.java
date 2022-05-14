@@ -39,6 +39,12 @@ public class Utils {
         String receiptContent =" 你好{{回执邮件}}，你的个人请求：{{请求id}}我们已收悉。";
         PropertyPlaceholderHelper propertyPlaceholderHelper = new PropertyPlaceholderHelper("{{", "}}");
         String s = propertyPlaceholderHelper.replacePlaceholders(receiptContent, values::get);
+        String received="{{回执邮件}}，你好，你的个人请求：{{请求id}}我们已收悉，目前状态变更为：【状态】{{租户名}}";
+        PropertyPlaceholderHelper propertyPlaceholder = new PropertyPlaceholderHelper("【", "】");
+        Map<String, String> composeMap = new HashMap<>(1);
+        composeMap.put("状态","垃圾");
+        propertyPlaceholder.replacePlaceholders(received,composeMap::get);
+        System.out.println("======="+received);
         System.out.println(s);
     }
 

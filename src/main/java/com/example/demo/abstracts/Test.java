@@ -1,4 +1,6 @@
-package com.example.demo.service;
+package com.example.demo.abstracts;
+
+import com.example.demo.serviceImpl.TestService;
 
 import javax.annotation.Resource;
 
